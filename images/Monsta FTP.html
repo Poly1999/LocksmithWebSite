@@ -1,0 +1,96 @@
+ <!DOCTYPE html>
+<html ng-app="MonstaFTP">
+<head>
+    <title>Monsta FTP</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" type="image/x-icon" href="application/frontend/images/logo-favicon.png">
+    <link rel="apple-touch-icon" href="application/frontend/images/logo-webclip.png">
+
+    <input type="hidden" id="g_defaultLanguage" value="en_us"/>
+    <input type="hidden" id="g_xhrTimeoutSeconds" value="240"/>
+    <input type="hidden" id="g_isNewWindowsInstall" value="false"/>
+    <input type="hidden" id="g_ftpConnectionAvailable" value="true"/>
+    <input type="hidden" id="g_openSslAvailable" value="true"/>
+    <!-- Commercial software - license status embedded for client validation -->
+    <input type="hidden" id="g_commercialLicense" value="true"/>
+    <input type="hidden" id="g_resetPasswordAvailable" value="false"/>
+    <input type="hidden" id="g_forgotPasswordAvailable" value="false"/>
+    
+    <script>
+        var g_defaultLanguage = document.getElementById('g_defaultLanguage').value;
+        var g_upgradeURL = "http://www.monstaftp.com/upgrade";
+        var g_loadComplete = false;
+        var g_xhrTimeoutSeconds = +document.getElementById('g_xhrTimeoutSeconds').value;
+        var g_isMonstaPostEntry = false;
+        var g_isNewWindowsInstall = document.getElementById('g_isNewWindowsInstall').value == 'true';
+        var g_ftpConnectionAvailable = document.getElementById('g_ftpConnectionAvailable').value == 'true';
+        var g_openSslAvailable = document.getElementById('g_openSslAvailable').value == 'true';
+        var g_commercialLicense = document.getElementById('g_commercialLicense').value == 'true'; // Commercial license status
+        var g_resetPasswordAvailable = document.getElementById('g_resetPasswordAvailable').value == 'true';
+        var g_forgotPasswordAvailable = document.getElementById('g_forgotPasswordAvailable').value == 'true';
+
+            </script>
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,600,300">
+	<script src="application/frontend/js/monsta-min-2.11-patches.js"></script>
+	
+    <script src="application/frontend/assets-2.11/vendor.js"></script>
+
+    <link rel="stylesheet" href="application/frontend/css/monsta.css">
+    <link rel="stylesheet" href="settings/theme.css">
+    
+    <script src="application/frontend/js/monsta-min-2.11.js"></script>
+    <script src="application/frontend/js/templates-2.11.js"></script>
+    <script src="application/frontend/js/archive-modal-fix.js"></script>
+
+                <script src="application/frontend/vs/loader.js"></script>
+                <script>
+        var g_languageFiles = [["de","Deutsch (German)"],["en_us","English (US)"],["es","Espa\u00f1ol (Spanish)"],["fr","Fran\u00e7ais (French)"],["it","Italiano (Italian)"],["hu","Magyar (Hungarian)"],["nl","Nederlands (Dutch)"],["ru","\u0420\u0443\u0441\u0441\u043a\u0438\u0439 (Russian)"],["ur","\u0627\u0631\u062f\u0648 (Urdu)"],["ar","\u0627\u0644\u0639\u0631\u0628\u064a\u0629 (Arabic)"],["hi","\u0939\u093f\u0928\u094d\u0926\u0940 (Hindi)"],["bn","\u09ac\u09be\u0982\u09b2\u09be (Bengali)"],["zh_cn","\u4e2d\u6587 (Simplified Chinese)"],["ja_jp","\u65e5\u672c\u8a9e (Japanese)"],["ko_kr","\ud55c\uad6d\uc5b4 (Korean)"]];
+    </script>
+</head>
+<body>
+
+    <div id="spinner" ng-controller="SpinnerController" ng-show="spinnerVisible">
+        <div>
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        </div>
+    </div>
+    <div id="file-xfer-drop" ng-controller="DragDropController">
+        <div translate>DROP_FILES_INSTRUCTION</div>
+    </div>
+    <ng-include src="'application/frontend/templates/modal-chmod.html'"></ng-include>
+    <ng-include src="'application/frontend/templates/modal-login.html'"></ng-include>
+    <ng-include src="'application/frontend/templates/modal-password-management.html'"></ng-include>
+    <ng-include src="'application/frontend/templates/modal-editor.html'"></ng-include>
+    <ng-include src="'application/frontend/templates/modal-transfers.html'"></ng-include>
+    <ng-include src="'application/frontend/templates/modal-prompt.html'"></ng-include>
+    <ng-include src="'application/frontend/templates/modal-confirm.html'"></ng-include>
+    <ng-include src="'application/frontend/templates/modal-error.html'"></ng-include>
+    <ng-include src="'application/frontend/templates/modal-addons.html'"></ng-include>
+    <ng-include src="'application/frontend/templates/modal-settings.html'"></ng-include>
+    <ng-include src="'application/frontend/templates/modal-properties.html'"></ng-include>
+    <ng-include src="'application/frontend/templates/modal-login-link.html'"></ng-include>
+    <ng-include src="'application/frontend/templates/modal-choice.html'"></ng-include>
+    <ng-include src="'application/frontend/templates/modal-update.html'"></ng-include>
+    <ng-include src="'application/frontend/templates/modal-upgrade-required.html'"></ng-include>
+
+    <div id="sb-site" canvas="container">
+        <ng-include src="'application/frontend/templates/body-header.html'"></ng-include>
+        <ng-include src="'application/frontend/templates/body-history.html'"></ng-include>
+        <ng-include src="'application/frontend/templates/body-files.html'"></ng-include>
+        <ng-include src="'application/frontend/templates/body-footer.html'"></ng-include>
+    </div>
+
+    <ng-include src="'application/frontend/templates/body-slidebar.html'"></ng-include>
+    <iframe src="about:blank" id="download-iframe"></iframe>
+    
+    <script>
+        var versionQS = "v=2.11&amp;r=https%3A%2F%2Ffilemanager.ai%2Fnew%2F&amp;os=Linux&amp;e=e" +getFpQs();
+        document.write('<scri' + 'pt async src="//monstaftp.com/_callbacks/latest-version.php?' + versionQS + '"></scr' + 'ipt>')
+    </script>
+</body>
+</html>

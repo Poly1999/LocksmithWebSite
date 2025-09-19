@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LockShark Pro</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-container">
+        <div class="header-logo">
+          <a href="index.html" class="logo">
+            <img src="./images/logo.svg" alt="Logo LockShark Pro"
+          /></a>
+          <p class="text-logo">LOCKSHARK PRO</p>
+        </div>
+
+        <nav class="header-nav">
+          <ul class="header-menu">
+            <li><a class="link" href="#hero">Home</a></li>
+            <li><a class="link" href="#services">Services</a></li>
+            <li><a class="link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="#contact" class="button">Get a Quote</a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-text fade-in">
+        <h1 class="hero-title">PREMIUM<br />SECURITY<br />SOLUTIONS</h1>
+        <p class="hero-subtitle">
+          Advanced locksmith services for the modern world. Fast, reliable, and
+          cutting-edge security solutions.
+        </p>
+        <a href="#contact" class="hero-button">Get a Quote</a>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+      <div class="services-header fade-in">
+        <h2 class="section-title">SERVICES</h2>
+        <p class="section-subtitle">
+          Comprehensive security solutions tailored to your needs
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <p class="service-number">01</p>
+          <h3 class="service-title">Residential</h3>
+          <p class="service-desc">
+            Smart locks, security systems, and emergency lockout services for
+            homes.
+          </p>
+        </div>
+
+        <div class="service-card fade-in">
+          <p class="service-number">02</p>
+          <h3 class="service-title">Commercial</h3>
+          <p class="service-desc">
+            Enterprise-grade access control and master key systems for
+            businesses.
+          </p>
+        </div>
+
+        <div class="service-card fade-in">
+          <p class="service-number">03</p>
+          <h3 class="service-title">Automotive</h3>
+          <p class="service-desc">
+            Car key replacement, transponder programming, and vehicle security
+            solutions.
+          </p>
+        </div>
+
+        <div class="service-card fade-in">
+          <p class="service-number">04</p>
+          <h3 class="service-title">Emergency</h3>
+          <p class="service-desc">
+            24/7 rapid response for urgent lockout situations and security
+            breaches.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="contact-container">
+        <div class="contact-info fade-in">
+          <h2>LET'S WORK TOGETHER</h2>
+          <p class="contact-desc">
+            Ready to upgrade your security? Get in touch and we'll create a
+            custom solution for you.
+          </p>
+
+          <div class="contact-stats">
+            <div class="stat">
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Emergency Service</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-number">PRICE</div>
+              <div class="stat-label">Free estimate</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-number">15min</div>
+              <div class="stat-label">Response Time</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-container fade-in">
+          <form
+            id="contactForm"
+            action="https://formspree.io/f/xpwjvqnd"
+            method="POST"
+          >
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  class="form-input"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  class="form-input"
+                  placeholder="Your phone"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="your@email.com"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Service</label>
+                <select name="service" class="form-input">
+                  <option value="">Select service</option>
+                  <option value="residential">Residential</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="automotive">Automotive</option>
+                  <option value="emergency">Emergency</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label">Project Details</label>
+              <textarea
+                name="message"
+                class="form-input"
+                rows="4"
+                placeholder="Tell us about your project..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-text">
+          © 2025 LockShark Pro. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">Terms</a>
+          <a href="#" class="footer-link">Support</a>
+        </div>
+      </div>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
